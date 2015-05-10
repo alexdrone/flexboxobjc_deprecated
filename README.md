@@ -5,7 +5,7 @@ A simple UIKit extension to wrap the CSS Flexbox layout.
 ![Gif](demo.gif)
 
 
-TODO: Documentation
+**TODO** : Documentation
 
 # Attribuitions 
 It uses Facebook's [flexbox implementation][css-layout] and was inspired by Josh Abernathy's
