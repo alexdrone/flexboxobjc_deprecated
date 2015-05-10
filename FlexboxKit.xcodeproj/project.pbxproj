@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1603018D1AFF551600D249F2 /* FLEXBOXContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1603018B1AFF551600D249F2 /* FLEXBOXContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1603018E1AFF551600D249F2 /* FLEXBOXContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1603018C1AFF551600D249F2 /* FLEXBOXContainerView.m */; };
+		16AD78A01AFE7C50003C2D01 /* FlexboxKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AD789F1AFE7C50003C2D01 /* FlexboxKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16AD78A61AFE7C50003C2D01 /* FlexboxKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AD789A1AFE7C50003C2D01 /* FlexboxKit.framework */; };
+		16AD78AD1AFE7C50003C2D01 /* FlexboxKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78AC1AFE7C50003C2D01 /* FlexboxKitTests.m */; };
+		16AD78B81AFE7C69003C2D01 /* Layout.c in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78B61AFE7C69003C2D01 /* Layout.c */; };
+		16AD78B91AFE7C69003C2D01 /* Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AD78B71AFE7C69003C2D01 /* Layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16AD78BC1AFE7C92003C2D01 /* FLEXBOXNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AD78BA1AFE7C92003C2D01 /* FLEXBOXNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16AD78BD1AFE7C92003C2D01 /* FLEXBOXNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78BB1AFE7C92003C2D01 /* FLEXBOXNode.m */; };
+		16AD78C01AFE8FB2003C2D01 /* UIView+FLEXBOX.h in Headers */ = {isa = PBXBuildFile; fileRef = 16AD78BE1AFE8FB2003C2D01 /* UIView+FLEXBOX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16AD78C11AFE8FB2003C2D01 /* UIView+FLEXBOX.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78BF1AFE8FB2003C2D01 /* UIView+FLEXBOX.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16AD78A71AFE7C50003C2D01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16AD78911AFE7C50003C2D01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16AD78991AFE7C50003C2D01;
+			remoteInfo = FlexboxKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1603018B1AFF551600D249F2 /* FLEXBOXContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXBOXContainerView.h; sourceTree = "<group>"; };
+		1603018C1AFF551600D249F2 /* FLEXBOXContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXBOXContainerView.m; sourceTree = "<group>"; };
+		16AD789A1AFE7C50003C2D01 /* FlexboxKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlexboxKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16AD789E1AFE7C50003C2D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16AD789F1AFE7C50003C2D01 /* FlexboxKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlexboxKit.h; sourceTree = "<group>"; };
+		16AD78A51AFE7C50003C2D01 /* FlexboxKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexboxKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16AD78AB1AFE7C50003C2D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16AD78AC1AFE7C50003C2D01 /* FlexboxKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlexboxKitTests.m; sourceTree = "<group>"; };
+		16AD78B61AFE7C69003C2D01 /* Layout.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Layout.c; sourceTree = "<group>"; };
+		16AD78B71AFE7C69003C2D01 /* Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layout.h; sourceTree = "<group>"; };
+		16AD78BA1AFE7C92003C2D01 /* FLEXBOXNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEXBOXNode.h; sourceTree = "<group>"; };
+		16AD78BB1AFE7C92003C2D01 /* FLEXBOXNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEXBOXNode.m; sourceTree = "<group>"; };
+		16AD78BE1AFE8FB2003C2D01 /* UIView+FLEXBOX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLEXBOX.h"; sourceTree = "<group>"; };
+		16AD78BF1AFE8FB2003C2D01 /* UIView+FLEXBOX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLEXBOX.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16AD78961AFE7C50003C2D01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16AD78A21AFE7C50003C2D01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16AD78A61AFE7C50003C2D01 /* FlexboxKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16AD78901AFE7C50003C2D01 = {
+			isa = PBXGroup;
+			children = (
+				16AD789C1AFE7C50003C2D01 /* FlexboxKit */,
+				16AD78A91AFE7C50003C2D01 /* FlexboxKitTests */,
+				16AD789B1AFE7C50003C2D01 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16AD789B1AFE7C50003C2D01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16AD789A1AFE7C50003C2D01 /* FlexboxKit.framework */,
+				16AD78A51AFE7C50003C2D01 /* FlexboxKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16AD789C1AFE7C50003C2D01 /* FlexboxKit */ = {
+			isa = PBXGroup;
+			children = (
+				16AD78B71AFE7C69003C2D01 /* Layout.h */,
+				16AD78B61AFE7C69003C2D01 /* Layout.c */,
+				16AD78BA1AFE7C92003C2D01 /* FLEXBOXNode.h */,
+				16AD78BB1AFE7C92003C2D01 /* FLEXBOXNode.m */,
+				16AD78BE1AFE8FB2003C2D01 /* UIView+FLEXBOX.h */,
+				16AD78BF1AFE8FB2003C2D01 /* UIView+FLEXBOX.m */,
+				1603018B1AFF551600D249F2 /* FLEXBOXContainerView.h */,
+				1603018C1AFF551600D249F2 /* FLEXBOXContainerView.m */,
+				16AD789F1AFE7C50003C2D01 /* FlexboxKit.h */,
+				16AD789D1AFE7C50003C2D01 /* Supporting Files */,
+			);
+			path = FlexboxKit;
+			sourceTree = "<group>";
+		};
+		16AD789D1AFE7C50003C2D01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16AD789E1AFE7C50003C2D01 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16AD78A91AFE7C50003C2D01 /* FlexboxKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				16AD78AC1AFE7C50003C2D01 /* FlexboxKitTests.m */,
+				16AD78AA1AFE7C50003C2D01 /* Supporting Files */,
+			);
+			path = FlexboxKitTests;
+			sourceTree = "<group>";
+		};
+		16AD78AA1AFE7C50003C2D01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16AD78AB1AFE7C50003C2D01 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		16AD78971AFE7C50003C2D01 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1603018D1AFF551600D249F2 /* FLEXBOXContainerView.h in Headers */,
+				16AD78B91AFE7C69003C2D01 /* Layout.h in Headers */,
+				16AD78BC1AFE7C92003C2D01 /* FLEXBOXNode.h in Headers */,
+				16AD78C01AFE8FB2003C2D01 /* UIView+FLEXBOX.h in Headers */,
+				16AD78A01AFE7C50003C2D01 /* FlexboxKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		16AD78991AFE7C50003C2D01 /* FlexboxKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16AD78B01AFE7C50003C2D01 /* Build configuration list for PBXNativeTarget "FlexboxKit" */;
+			buildPhases = (
+				16AD78951AFE7C50003C2D01 /* Sources */,
+				16AD78961AFE7C50003C2D01 /* Frameworks */,
+				16AD78971AFE7C50003C2D01 /* Headers */,
+				16AD78981AFE7C50003C2D01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlexboxKit;
+			productName = FlexboxKit;
+			productReference = 16AD789A1AFE7C50003C2D01 /* FlexboxKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		16AD78A41AFE7C50003C2D01 /* FlexboxKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16AD78B31AFE7C50003C2D01 /* Build configuration list for PBXNativeTarget "FlexboxKitTests" */;
+			buildPhases = (
+				16AD78A11AFE7C50003C2D01 /* Sources */,
+				16AD78A21AFE7C50003C2D01 /* Frameworks */,
+				16AD78A31AFE7C50003C2D01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16AD78A81AFE7C50003C2D01 /* PBXTargetDependency */,
+			);
+			name = FlexboxKitTests;
+			productName = FlexboxKitTests;
+			productReference = 16AD78A51AFE7C50003C2D01 /* FlexboxKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16AD78911AFE7C50003C2D01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Alex Usbergo";
+				TargetAttributes = {
+					16AD78991AFE7C50003C2D01 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					16AD78A41AFE7C50003C2D01 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 16AD78941AFE7C50003C2D01 /* Build configuration list for PBXProject "FlexboxKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 16AD78901AFE7C50003C2D01;
+			productRefGroup = 16AD789B1AFE7C50003C2D01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16AD78991AFE7C50003C2D01 /* FlexboxKit */,
+				16AD78A41AFE7C50003C2D01 /* FlexboxKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16AD78981AFE7C50003C2D01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16AD78A31AFE7C50003C2D01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16AD78951AFE7C50003C2D01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16AD78BD1AFE7C92003C2D01 /* FLEXBOXNode.m in Sources */,
+				16AD78C11AFE8FB2003C2D01 /* UIView+FLEXBOX.m in Sources */,
+				16AD78B81AFE7C69003C2D01 /* Layout.c in Sources */,
+				1603018E1AFF551600D249F2 /* FLEXBOXContainerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16AD78A11AFE7C50003C2D01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16AD78AD1AFE7C50003C2D01 /* FlexboxKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16AD78A81AFE7C50003C2D01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16AD78991AFE7C50003C2D01 /* FlexboxKit */;
+			targetProxy = 16AD78A71AFE7C50003C2D01 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16AD78AE1AFE7C50003C2D01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		16AD78AF1AFE7C50003C2D01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		16AD78B11AFE7C50003C2D01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FlexboxKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16AD78B21AFE7C50003C2D01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FlexboxKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		16AD78B41AFE7C50003C2D01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FlexboxKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		16AD78B51AFE7C50003C2D01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FlexboxKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16AD78941AFE7C50003C2D01 /* Build configuration list for PBXProject "FlexboxKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16AD78AE1AFE7C50003C2D01 /* Debug */,
+				16AD78AF1AFE7C50003C2D01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16AD78B01AFE7C50003C2D01 /* Build configuration list for PBXNativeTarget "FlexboxKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16AD78B11AFE7C50003C2D01 /* Debug */,
+				16AD78B21AFE7C50003C2D01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16AD78B31AFE7C50003C2D01 /* Build configuration list for PBXNativeTarget "FlexboxKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16AD78B41AFE7C50003C2D01 /* Debug */,
+				16AD78B51AFE7C50003C2D01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16AD78911AFE7C50003C2D01 /* Project object */;
+}
