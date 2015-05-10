@@ -1,6 +1,10 @@
 # FlexboxKit
 A simple UIKit extension to wrap the CSS Flexbox layout.
 
+<p align="center">
+![Gif](demo.gif)
+
+
 TODO: Documentation
 
 # Attribuitions 
