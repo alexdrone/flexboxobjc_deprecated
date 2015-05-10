@@ -126,19 +126,19 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 - (void)setMargin:(UIEdgeInsets)margin
 {
     _margin = margin;
-    _node->style.margin[0] = margin.top;
-    _node->style.margin[1] = margin.left;
-    _node->style.margin[2] = margin.bottom;
-    _node->style.margin[3] = margin.right;
+    _node->style.margin[0] = margin.left;
+    _node->style.margin[1] = margin.top;
+    _node->style.margin[2] = margin.right;
+    _node->style.margin[3] = margin.bottom;
 }
 
 - (void)setPadding:(UIEdgeInsets)padding
 {
     _padding = padding;
-    _node->style.padding[0] = padding.top;
-    _node->style.padding[1] = padding.left;
-    _node->style.padding[2] = padding.bottom;
-    _node->style.padding[3] = padding.right;
+    _node->style.padding[0] = padding.left;
+    _node->style.padding[1] = padding.top;
+    _node->style.padding[2] = padding.right;
+    _node->style.padding[3] = padding.bottom;
 }
 
 - (void)setFlex:(CGFloat)flex

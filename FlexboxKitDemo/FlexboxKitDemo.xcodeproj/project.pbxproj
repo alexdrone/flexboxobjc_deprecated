@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		16184A341AFE984200D9BC28 /* FlexboxKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AD78FB1AFE9768003C2D01 /* FlexboxKit.framework */; };
 		16184A351AFE984200D9BC28 /* FlexboxKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16AD78FB1AFE9768003C2D01 /* FlexboxKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		162265831AFFB1D40039345E /* CellDemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 162265821AFFB1D40039345E /* CellDemoTableViewController.m */; };
 		16AD78D21AFE9762003C2D01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78D11AFE9762003C2D01 /* main.m */; };
 		16AD78D51AFE9762003C2D01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78D41AFE9762003C2D01 /* AppDelegate.m */; };
-		16AD78D81AFE9762003C2D01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78D71AFE9762003C2D01 /* ViewController.m */; };
+		16AD78D81AFE9762003C2D01 /* ButtonDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78D71AFE9762003C2D01 /* ButtonDemoViewController.m */; };
 		16AD78DD1AFE9762003C2D01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16AD78DC1AFE9762003C2D01 /* Images.xcassets */; };
 		16AD78E01AFE9762003C2D01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16AD78DE1AFE9762003C2D01 /* LaunchScreen.xib */; };
 		16AD78EC1AFE9762003C2D01 /* FlexboxKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78EB1AFE9762003C2D01 /* FlexboxKitDemoTests.m */; };
@@ -63,13 +64,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		162265811AFFB1D40039345E /* CellDemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellDemoTableViewController.h; sourceTree = "<group>"; };
+		162265821AFFB1D40039345E /* CellDemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellDemoTableViewController.m; sourceTree = "<group>"; };
 		16AD78CC1AFE9762003C2D01 /* FlexboxKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlexboxKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16AD78D01AFE9762003C2D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AD78D11AFE9762003C2D01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		16AD78D31AFE9762003C2D01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16AD78D41AFE9762003C2D01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		16AD78D61AFE9762003C2D01 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		16AD78D71AFE9762003C2D01 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		16AD78D61AFE9762003C2D01 /* ButtonDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonDemoViewController.h; sourceTree = "<group>"; };
+		16AD78D71AFE9762003C2D01 /* ButtonDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonDemoViewController.m; sourceTree = "<group>"; };
 		16AD78DC1AFE9762003C2D01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16AD78DF1AFE9762003C2D01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		16AD78E51AFE9762003C2D01 /* FlexboxKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexboxKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,8 +124,10 @@
 			children = (
 				16AD78D31AFE9762003C2D01 /* AppDelegate.h */,
 				16AD78D41AFE9762003C2D01 /* AppDelegate.m */,
-				16AD78D61AFE9762003C2D01 /* ViewController.h */,
-				16AD78D71AFE9762003C2D01 /* ViewController.m */,
+				16AD78D61AFE9762003C2D01 /* ButtonDemoViewController.h */,
+				16AD78D71AFE9762003C2D01 /* ButtonDemoViewController.m */,
+				162265811AFFB1D40039345E /* CellDemoTableViewController.h */,
+				162265821AFFB1D40039345E /* CellDemoTableViewController.m */,
 				16AD78DC1AFE9762003C2D01 /* Images.xcassets */,
 				16AD78DE1AFE9762003C2D01 /* LaunchScreen.xib */,
 				16AD78CF1AFE9762003C2D01 /* Supporting Files */,
@@ -289,7 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16AD78D81AFE9762003C2D01 /* ViewController.m in Sources */,
+				162265831AFFB1D40039345E /* CellDemoTableViewController.m in Sources */,
+				16AD78D81AFE9762003C2D01 /* ButtonDemoViewController.m in Sources */,
 				16AD78D51AFE9762003C2D01 /* AppDelegate.m in Sources */,
 				16AD78D21AFE9762003C2D01 /* main.m in Sources */,
 			);

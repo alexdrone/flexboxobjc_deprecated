@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 Alex Usbergo. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ButtonDemoViewController.h"
 @import FlexboxKit;
 
-@interface ViewController ()
+@interface ButtonDemoViewController ()
 
 @property (nonatomic, strong) FLEXBOXContainerView *container;
 @property (nonatomic, strong) NSArray *views;
 
 @end
 
-@implementation ViewController
+@implementation ButtonDemoViewController
 
 - (void)viewDidLoad
 {
@@ -25,6 +25,7 @@
     // the flexbox container
     FLEXBOXContainerView *c = [[FLEXBOXContainerView alloc] initWithFrame:self.view.bounds];
     c.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    c.backgroundColor = [UIColor darkGrayColor];
     [self.view addSubview:c];
     
     self.container = c;
@@ -49,6 +50,7 @@
 {
     self.container.flexJustifyContent = FLEXBOXJustificationCenter;
     self.container.flexAlignItems = FLEXBOXAlignmentCenter;
+    self.container.flexPadding = (UIEdgeInsets){32,16,32,16};;
     
     for (UIView *v in self.views) {
         v.flexMargin = (UIEdgeInsets){8,8,8,8};

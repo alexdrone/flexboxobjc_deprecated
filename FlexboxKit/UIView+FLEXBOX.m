@@ -87,8 +87,8 @@ const void *FLEXBOXSizeKey;
         FLEXBOXNode *subnode = node.childrenAtIndexBlock(i);
         subview.frame = CGRectIntegral(subnode.frame);
     }
-    
-    self.frame = node.frame;
+
+    self.frame = (CGRect){self.frame.origin, node.frame.size};
 }
 
 #pragma mark - Properties

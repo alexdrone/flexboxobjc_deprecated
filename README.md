@@ -4,6 +4,9 @@ A simple UIKit extension to wrap the CSS Flexbox layout.
 <p align="center">
 ![Gif](demo.gif)
 
+<p align="center">
+![Gif](cell-example.png)
+
 
 **TODO** : Documentation
 

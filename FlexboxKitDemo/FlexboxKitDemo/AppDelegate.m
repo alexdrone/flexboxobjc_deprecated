@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "ButtonDemoViewController.h"
+#import "CellDemoTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +21,13 @@
 {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[ViewController alloc] init];
+   
+    self.window.rootViewController = [[ButtonDemoViewController alloc] init];
+
+    //Uncomment this to see the UITableViewCell demo
+    //self.window.rootViewController = [[CellDemoTableViewController alloc] init];
+    
+    
     [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
