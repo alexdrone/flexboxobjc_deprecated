@@ -57,6 +57,7 @@
         v.flexPadding = (UIEdgeInsets){4,4,4,4};
         v.flex = 0;
         v.flexFixedSize = CGSizeZero;
+        v.flexMaximumSize = (CGSize){FLT_MAX, FLT_MAX};
     }
     
     switch (index) {
@@ -121,8 +122,20 @@
             break;
         }
             
-        // fixed size
+        // stretch (with max width)
         case 6: {
+            self.container.flexAlignItems = FLEXBOXAlignmentStretch;
+            self.container.flexJustifyContent = FLEXBOXJustificationCenter;
+            
+            for (UIView *v in self.views) {
+                v.flex = 1;
+                v.flexMaximumSize = (CGSize){320, 32};
+            }
+            break;
+        }
+            
+        // fixed size
+        case 7: {
             
             for (UIView *v in self.views) {
                 v.flexFixedSize = CGSizeMake(64, 32);
@@ -150,7 +163,7 @@
 
 - (NSArray*)labels
 {
-    return @[@"col", @"row", @"wrap", @"start", @"end", @"stretch", @"fixed"];
+    return @[@"col", @"row", @"wrap", @"start", @"end", @"stretch", @"stretch max", @"fixed"];
 }
 
 // creates some test views

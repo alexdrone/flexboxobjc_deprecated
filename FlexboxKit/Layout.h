@@ -11,7 +11,16 @@
 #define __LAYOUT_H
 
 #include <math.h>
+#ifndef __cplusplus
 #include <stdbool.h>
+#endif
+
+// Not defined in MSVC++
+#ifndef NAN
+static const unsigned long __nan[2] = {0xffffffff, 0x7fffffff};
+#define NAN (*(const float *)__nan)
+#endif
+
 #define CSS_UNDEFINED NAN
 
 typedef enum {
@@ -102,6 +111,8 @@ typedef struct {
   float padding[4];
   float border[4];
   float dimensions[2];
+  float minDimensions[2];
+  float maxDimensions[2];
 } css_style_t;
 
 typedef struct css_node {

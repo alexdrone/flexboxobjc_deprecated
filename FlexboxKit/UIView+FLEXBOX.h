@@ -19,6 +19,12 @@
 /// Set this if you wish to have a fixed size for this element
 @property (nonatomic, assign) CGSize flexFixedSize;
 
+/// The minumum size for this element
+@property (nonatomic, assign) CGSize flexMinumumSize;
+
+/// The maximum size for this element
+@property (nonatomic, assign) CGSize flexMaximumSize;
+
 /// It establishes the main-axis, thus defining the direction flex items are placed in the flex container.
 /// - row: same as text direction (@see FLEXBOXDirectionColumn)
 /// - column (default): same as row but top to bottom (@see FLEXBOXDirectionRow)

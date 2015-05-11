@@ -50,6 +50,8 @@ extern const CGFloat FLEXBOXUndefinedMaximumWidth;
 // Style
 
 @property (nonatomic, assign) CGSize dimensions;
+@property (nonatomic, assign) CGSize minDimensions;
+@property (nonatomic, assign) CGSize maxDimensions;
 @property (nonatomic, assign) FLEXBOXDirection flexDirection;
 @property (nonatomic, assign) UIEdgeInsets margin;
 @property (nonatomic, assign) UIEdgeInsets padding;

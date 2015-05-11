@@ -55,6 +55,26 @@ const void *FLEXBOXSizeKey;
     }
 }
 
+- (CGSize)flexMinumumSize
+{
+    return self.flexNode.minDimensions;
+}
+
+- (void)setFlexMinumumSize:(CGSize)flexMinumumSize
+{
+    self.flexNode.minDimensions = flexMinumumSize;
+}
+
+- (CGSize)flexMaximumSize
+{
+    return self.flexNode.maxDimensions;
+}
+
+- (void)setFlexMaximumSize:(CGSize)flexMaximumSize
+{
+    self.flexNode.maxDimensions = flexMaximumSize;
+}
+
 - (void)setFlexFixedSize:(CGSize)flexFixedSize
 {
     return objc_setAssociatedObject(self, &FLEXBOXSizeKey, [NSValue valueWithCGSize:flexFixedSize], OBJC_ASSOCIATION_RETAIN);
