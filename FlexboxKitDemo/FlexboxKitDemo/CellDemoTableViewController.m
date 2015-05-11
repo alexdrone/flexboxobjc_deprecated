@@ -70,14 +70,14 @@ static const CGFloat CELL_HEIGHT = 62;
         
         
         object_setClass(self.contentView, FLEXBOXContainerView.class);
-        self.contentView.flexDirection = FLEXBOXDirectionRow;
+        self.contentView.flexDirection = FLEXBOXFlexDirectionRow;
         
         left.flexFixedSize = (CGSize){CELL_HEIGHT-8,CELL_HEIGHT-8};
         left.flexMargin = (UIEdgeInsets){0,12,0,12};
         left.flexAlignSelf = FLEXBOXAlignmentCenter;
         
         right.flex = 1;
-        right.flexDirection = FLEXBOXDirectionColumn;
+        right.flexDirection = FLEXBOXFlexDirectionColumn;
         right.flexJustifyContent = FLEXBOXJustificationCenter;
         
         time.flexMargin = (UIEdgeInsets){0,12,0,12};

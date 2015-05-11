@@ -9,9 +9,17 @@
 #import "Layout.h"
 @import UIKit;
 
-typedef NS_ENUM(NSInteger, FLEXBOXDirection) {
-    FLEXBOXDirectionColumn = CSS_FLEX_DIRECTION_COLUMN,
-    FLEXBOXDirectionRow = CSS_FLEX_DIRECTION_ROW
+typedef NS_ENUM(NSInteger, FLEXBOXFlexDirection) {
+    FLEXBOXFlexDirectionColumn = CSS_FLEX_DIRECTION_COLUMN,
+    FLEXBOXFlexDirectionRow = CSS_FLEX_DIRECTION_ROW,
+    FLEXBOXFlexDirectionRowReverse = CSS_FLEX_DIRECTION_ROW_REVERSE,
+    FLEXBOXFlexDirectionColumnReverse = CSS_FLEX_DIRECTION_COLUMN_REVERSE
+};
+
+typedef NS_ENUM(NSInteger, FLEXBOXContentDirection) {
+    FLEXBOXContentDirectionInherit = CSS_DIRECTION_INHERIT,
+    FLEXBOXContentDirectionLeftToRight = CSS_DIRECTION_LTR,
+    FLEXBOXContentDirectionRightToLeft = CSS_DIRECTION_RTL
 };
 
 typedef NS_ENUM(NSInteger, FLEXBOXJustification) {
@@ -29,6 +37,8 @@ typedef NS_ENUM(NSInteger, FLEXBOXAlignment) {
     FLEXBOXAlignmentFlexEnd = CSS_ALIGN_FLEX_END,
     FLEXBOXAlignmentStretch = CSS_ALIGN_STRETCH
 };
+
+
 
 
 extern const CGFloat FLEXBOXUndefinedMaximumWidth;
@@ -52,7 +62,7 @@ extern const CGFloat FLEXBOXUndefinedMaximumWidth;
 @property (nonatomic, assign) CGSize dimensions;
 @property (nonatomic, assign) CGSize minDimensions;
 @property (nonatomic, assign) CGSize maxDimensions;
-@property (nonatomic, assign) FLEXBOXDirection flexDirection;
+@property (nonatomic, assign) FLEXBOXFlexDirection flexDirection;
 @property (nonatomic, assign) UIEdgeInsets margin;
 @property (nonatomic, assign) UIEdgeInsets padding;
 @property (nonatomic, assign) BOOL flexWrap;
@@ -60,6 +70,7 @@ extern const CGFloat FLEXBOXUndefinedMaximumWidth;
 @property (nonatomic, assign) FLEXBOXAlignment alignSelf;
 @property (nonatomic, assign) FLEXBOXAlignment alignItems;
 @property (nonatomic, assign) CGFloat flex;
+@property (nonatomic, assign) FLEXBOXContentDirection contentDirection;
 
 @end
 

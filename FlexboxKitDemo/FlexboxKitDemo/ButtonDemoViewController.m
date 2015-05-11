@@ -66,7 +66,7 @@
         case 0: {
             self.container.flexJustifyContent = FLEXBOXJustificationCenter;
             self.container.flexAlignItems = FLEXBOXAlignmentCenter;
-            self.container.flexDirection = FLEXBOXDirectionColumn;
+            self.container.flexDirection = FLEXBOXFlexDirectionColumn;
             break;
         }
             
@@ -74,7 +74,7 @@
         case 1: {
             self.container.flexJustifyContent = FLEXBOXJustificationCenter;
             self.container.flexAlignItems = FLEXBOXAlignmentCenter;
-            self.container.flexDirection = FLEXBOXDirectionRow;
+            self.container.flexDirection = FLEXBOXFlexDirectionRow;
 
             for (UIView *v in self.views) {
                 v.flex = 1;
@@ -144,6 +144,7 @@
             break;
         }
     
+
         default:
             break;
     }
@@ -163,7 +164,7 @@
 
 - (NSArray*)labels
 {
-    return @[@"col", @"row", @"wrap", @"start", @"end", @"stretch", @"stretch max", @"fixed"];
+    return @[@"colum", @"row", @"wrap", @"flex-start", @"flex-end", @"stretch", @"stretch (constrained)", @"fixed"];
 }
 
 // creates some test views

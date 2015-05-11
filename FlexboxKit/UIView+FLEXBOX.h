@@ -26,9 +26,11 @@
 @property (nonatomic, assign) CGSize flexMaximumSize;
 
 /// It establishes the main-axis, thus defining the direction flex items are placed in the flex container.
-/// - row: same as text direction (@see FLEXBOXDirectionColumn)
-/// - column (default): same as row but top to bottom (@see FLEXBOXDirectionRow)
-@property (nonatomic, assign) FLEXBOXDirection flexDirection;
+/// - row: same as text direction (@see FLEXBOXFlexDirectionColumn)
+/// - column (default): same as row but top to bottom (@see FLEXBOXFlexDirectionRow)
+/// - row-reverse: (@see FLEXBOXFlexDirectionRowReverse)
+/// - column-reverse: (@see FLEXBOXFlexDirectionColumnReverse)
+@property (nonatomic, assign) FLEXBOXFlexDirection flexDirection;
 
 /// The margins for this flex item (default is 0)
 @property (nonatomic, assign) UIEdgeInsets flexMargin;
@@ -69,6 +71,9 @@
 
 /// The flex property specifies the initial length of a flexible item.
 @property (nonatomic, assign) CGFloat flex;
+
+/// The node content directon (default is inherit)
+@property (nonatomic, assign) FLEXBOXContentDirection contentDirection;
 
 // Methods
 

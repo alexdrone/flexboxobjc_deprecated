@@ -113,12 +113,12 @@ const void *FLEXBOXSizeKey;
 
 #pragma mark - Properties
 
-- (FLEXBOXDirection)flexDirection
+- (FLEXBOXFlexDirection)flexDirection
 {
     return self.flexNode.flexDirection;
 }
 
-- (void)setFlexDirection:(FLEXBOXDirection)flexDirection
+- (void)setFlexDirection:(FLEXBOXFlexDirection)flexDirection
 {
     self.flexNode.flexDirection = flexDirection;
 }

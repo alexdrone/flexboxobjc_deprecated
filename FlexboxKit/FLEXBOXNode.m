@@ -47,7 +47,7 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
         _node->get_child = FLEXBOX_getChild;
         
         //defaults
-        self.flexDirection = FLEXBOXDirectionColumn;
+        self.flexDirection = FLEXBOXFlexDirectionColumn;
         self.flexWrap = NO;
         self.alignItems = FLEXBOXAlignmentStretch;
         self.alignSelf = FLEXBOXAlignmentAuto;
@@ -55,6 +55,7 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
         self.padding = UIEdgeInsetsZero;
         self.justifyContent = FLEXBOXJustificationFlexStart;
         self.flex = 0;
+        self.contentDirection = FLEXBOXContentDirectionInherit;
     }
     
     return self;
@@ -95,7 +96,7 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
     
     maximumWidth = fabs(maximumWidth - FLT_MAX) < FLT_EPSILON ? FLEXBOXUndefinedMaximumWidth : maximumWidth;
     [self prepareForLayout];
-    layoutNode(_node, maximumWidth);
+    layoutNode(_node, maximumWidth, _node->style.direction);
 }
 
 - (CGRect)frame
@@ -131,7 +132,7 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
     _node->style.maxDimensions[1] = size.height;
 }
 
-- (void)setFlexDirection:(FLEXBOXDirection)flexDirection
+- (void)setFlexDirection:(FLEXBOXFlexDirection)flexDirection
 {
     _flexDirection = flexDirection;
     _node->style.flex_direction = (int)flexDirection;
@@ -183,6 +184,12 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 {
     _alignSelf = alignSelf;
     _node->style.align_self = (int)alignSelf;
+}
+
+- (void)setContentDirection:(FLEXBOXContentDirection)contentDirection
+{
+    _contentDirection = contentDirection;
+    _node->style.direction = (int)contentDirection;
 }
 
 @end
