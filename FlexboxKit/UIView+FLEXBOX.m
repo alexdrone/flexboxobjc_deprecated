@@ -89,14 +89,14 @@ const void *FLEXBOXSizeThatFitsBlock;
     
     CGSize max = self.flexMaximumSize;
     if (!CGSizeEqualToSize(max, CGSizeZero) || !CGSizeEqualToSize(max, (CGSize){FLT_MAX, FLT_MAX})) {
-        size.height = !isnan(max.height) && size.height > max.height ? max.height : size.height;
-        size.width = !isnan(max.width) && size.width > max.width ? max.width : size.width;
+        size.height = !isnan(max.height) && fabs(max.height) > FLT_EPSILON  && size.height > max.height ? max.height : size.height;
+        size.width = !isnan(max.width) && fabs(max.width) > FLT_EPSILON  && size.width > max.width ? max.width : size.width;
     }
     
     CGSize min = self.flexMinimumSize;
     if (!CGSizeEqualToSize(min, CGSizeZero) || !CGSizeEqualToSize(max, (CGSize){FLT_MIN, FLT_MIN})) {
-        size.height = !isnan(min.height) && size.height < min.height ? min.height : size.height;
-        size.width = !isnan(min.width) && size.width < min.width ? min.width : size.width;
+        size.height = !isnan(min.height) && fabs(min.height) > FLT_EPSILON && size.height < min.height ? min.height : size.height;
+        size.width = !isnan(min.width) && fabs(min.width) > FLT_EPSILON && size.width < min.width ? min.width : size.width;
     }
 
     return size;
