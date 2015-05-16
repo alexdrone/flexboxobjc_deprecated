@@ -20,7 +20,7 @@
 @property (nonatomic, assign) CGSize flexFixedSize;
 
 /// The minumum size for this element
-@property (nonatomic, assign) CGSize flexMinumumSize;
+@property (nonatomic, assign) CGSize flexMinimumSize;
 
 /// The maximum size for this element
 @property (nonatomic, assign) CGSize flexMaximumSize;

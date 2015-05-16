@@ -55,14 +55,14 @@ const void *FLEXBOXSizeKey;
     }
 }
 
-- (CGSize)flexMinumumSize
+- (CGSize)flexMinimumSize
 {
     return self.flexNode.minDimensions;
 }
 
-- (void)setFlexMinumumSize:(CGSize)flexMinumumSize
+- (void)setFlexMinimumSize:(CGSize)flexMinimumSize
 {
-    self.flexNode.minDimensions = flexMinumumSize;
+    self.flexNode.minDimensions = flexMinimumSize;
 }
 
 - (CGSize)flexMaximumSize
