@@ -29,9 +29,7 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
     return (css_dim_t){ size.width, size.height };
 }
 
-
 @implementation FLEXBOXNode
-
 
 #pragma mark - Lifecycle
 

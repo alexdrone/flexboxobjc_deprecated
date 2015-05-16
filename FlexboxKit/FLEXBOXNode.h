@@ -38,9 +38,6 @@ typedef NS_ENUM(NSInteger, FLEXBOXAlignment) {
     FLEXBOXAlignmentStretch = CSS_ALIGN_STRETCH
 };
 
-
-
-
 extern const CGFloat FLEXBOXUndefinedMaximumWidth;
 
 @interface FLEXBOXNode : NSObject
