@@ -85,4 +85,8 @@
 /// engine to compute the layout
 - (void)flexLayoutSubviews;
 
+/// Define this block if you want to specify some custom logic instead of
+/// calling -[UIView sizeThatFits:] in -[UIView flexComputeSize:]
+@property (nonatomic, copy) CGSize (^sizeThatFitsBlock)(CGSize size);
+
 @end

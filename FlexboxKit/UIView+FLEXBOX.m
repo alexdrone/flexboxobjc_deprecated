@@ -11,6 +11,7 @@
 
 const void *FLEXBOXNodeKey;
 const void *FLEXBOXSizeKey;
+const void *FLEXBOXSizeThatFitsBlock;
 
 @implementation UIView (FLEXBOX)
 
@@ -60,6 +61,16 @@ const void *FLEXBOXSizeKey;
     return objc_setAssociatedObject(self, &FLEXBOXSizeKey, [NSValue valueWithCGSize:flexFixedSize], OBJC_ASSOCIATION_RETAIN);
 }
 
+- (void)setSizeThatFitsBlock:(CGSize (^)(CGSize))sizeThatFitsBlock
+{
+    objc_setAssociatedObject(self, &FLEXBOXSizeThatFitsBlock, [sizeThatFitsBlock copy], OBJC_ASSOCIATION_COPY);
+}
+
+- (CGSize (^)(CGSize))sizeThatFitsBlock
+{
+    return objc_getAssociatedObject(self, &FLEXBOXSizeThatFitsBlock);
+}
+
 - (CGSize)flexComputeSize:(CGSize)bounds
 {
     if (!CGSizeEqualToSize(self.flexFixedSize, CGSizeZero))
@@ -68,7 +79,13 @@ const void *FLEXBOXSizeKey;
     bounds.height = isnan(bounds.height) ? FLT_MAX : bounds.height;
     bounds.width = isnan(bounds.width) ? FLT_MAX : bounds.width;
     
-    CGSize size = [self sizeThatFits:bounds];
+    CGSize size = CGSizeZero;
+    
+    if (self.sizeThatFitsBlock != nil) {
+        size = self.sizeThatFitsBlock(bounds);
+    } else {
+         size = [self sizeThatFits:bounds];
+    }
     
     CGSize max = self.flexMaximumSize;
     if (!CGSizeEqualToSize(max, CGSizeZero) || !CGSizeEqualToSize(max, (CGSize){FLT_MAX, FLT_MAX})) {
@@ -84,7 +101,6 @@ const void *FLEXBOXSizeKey;
 
     return size;
 }
-
 
 - (void)flexLayoutSubviews
 {
