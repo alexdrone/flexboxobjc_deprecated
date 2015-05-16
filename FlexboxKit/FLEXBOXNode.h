@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, FLEXBOXAlignment) {
     FLEXBOXAlignmentStretch = CSS_ALIGN_STRETCH
 };
 
-extern const CGFloat FLEXBOXUndefinedMaximumWidth;
+extern const CGFloat FLEXBOXUndefinedDimension;
 
 @interface FLEXBOXNode : NSObject
 
@@ -51,7 +51,7 @@ extern const CGFloat FLEXBOXUndefinedMaximumWidth;
 
 
 /// Compute the layout for the node constrained to the width passed as argument
-/// @param maximumWidth The maximum width or FLEXBOXUndefinedMaximumWidth
+/// @param maximumWidth The maximum width or FLEXBOXUndefinedDimension
 - (void)layoutConstrainedToMaximumWidth:(CGFloat)maximumWidth;
 
 // Style

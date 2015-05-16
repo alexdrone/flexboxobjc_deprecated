@@ -55,26 +55,6 @@ const void *FLEXBOXSizeKey;
     }
 }
 
-- (CGSize)flexMinimumSize
-{
-    return self.flexNode.minDimensions;
-}
-
-- (void)setFlexMinimumSize:(CGSize)flexMinimumSize
-{
-    self.flexNode.minDimensions = flexMinimumSize;
-}
-
-- (CGSize)flexMaximumSize
-{
-    return self.flexNode.maxDimensions;
-}
-
-- (void)setFlexMaximumSize:(CGSize)flexMaximumSize
-{
-    self.flexNode.maxDimensions = flexMaximumSize;
-}
-
 - (void)setFlexFixedSize:(CGSize)flexFixedSize
 {
     return objc_setAssociatedObject(self, &FLEXBOXSizeKey, [NSValue valueWithCGSize:flexFixedSize], OBJC_ASSOCIATION_RETAIN);
@@ -89,6 +69,18 @@ const void *FLEXBOXSizeKey;
     bounds.width = isnan(bounds.width) ? FLT_MAX : bounds.width;
     
     CGSize size = [self sizeThatFits:bounds];
+    
+    CGSize max = self.flexMaximumSize;
+    if (!CGSizeEqualToSize(max, CGSizeZero) || !CGSizeEqualToSize(max, (CGSize){FLT_MAX, FLT_MAX})) {
+        size.height = !isnan(max.height) && size.height > max.height ? max.height : size.height;
+        size.width = !isnan(max.width) && size.width > max.width ? max.width : size.width;
+    }
+    
+    CGSize min = self.flexMinimumSize;
+    if (!CGSizeEqualToSize(min, CGSizeZero) || !CGSizeEqualToSize(max, (CGSize){FLT_MIN, FLT_MIN})) {
+        size.height = !isnan(min.height) && size.height < min.height ? min.height : size.height;
+        size.width = !isnan(min.width) && size.width < min.width ? min.width : size.width;
+    }
 
     return size;
 }
@@ -191,6 +183,36 @@ const void *FLEXBOXSizeKey;
 - (void)setFlex:(CGFloat)flex
 {
     self.flexNode.flex = flex;
+}
+
+- (CGSize)flexMinimumSize
+{
+    return self.flexNode.minDimensions;
+}
+
+- (void)setFlexMinimumSize:(CGSize)flexMinimumSize
+{
+    self.flexNode.minDimensions = flexMinimumSize;
+}
+
+- (CGSize)flexMaximumSize
+{
+    return self.flexNode.maxDimensions;
+}
+
+- (void)setFlexMaximumSize:(CGSize)flexMaximumSize
+{
+    self.flexNode.maxDimensions = flexMaximumSize;
+}
+
+- (FLEXBOXContentDirection)flexContentDirection
+{
+    return self.flexNode.contentDirection;
+}
+
+- (void)setFlexContentDirection:(FLEXBOXContentDirection)flexContentDirection
+{
+    self.flexNode.contentDirection = flexContentDirection;
 }
 
 @end

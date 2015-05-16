@@ -8,7 +8,7 @@
 
 #import "FLEXBOXNode.h"
 
-const CGFloat FLEXBOXUndefinedMaximumWidth = CSS_UNDEFINED;
+const CGFloat FLEXBOXUndefinedDimension = CSS_UNDEFINED;
 
 static BOOL FLEXBOX_alwaysDirty(void *context)
 {
@@ -43,6 +43,9 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
         _node->is_dirty = FLEXBOX_alwaysDirty;
         _node->measure = FLEXBOX_measureNode;
         _node->get_child = FLEXBOX_getChild;
+        
+        _maxDimensions = CGSizeZero;
+        _minDimensions = CGSizeZero;
         
         //defaults
         self.flexDirection = FLEXBOXFlexDirectionColumn;
@@ -92,7 +95,7 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 {
     _node->children_count = (int)self.childrenCountBlock();
     
-    maximumWidth = fabs(maximumWidth - FLT_MAX) < FLT_EPSILON ? FLEXBOXUndefinedMaximumWidth : maximumWidth;
+    maximumWidth = fabs(maximumWidth - FLT_MAX) < FLT_EPSILON ? FLEXBOXUndefinedDimension : maximumWidth;
     [self prepareForLayout];
     layoutNode(_node, maximumWidth, _node->style.direction);
 }
@@ -118,14 +121,14 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 
 - (void)setMinDimensions:(CGSize)size
 {
-    _dimensions = size;
+    _minDimensions = size;
     _node->style.minDimensions[0] = size.width;
     _node->style.minDimensions[1] = size.height;
 }
 
 - (void)setMaxDimensions:(CGSize)size
 {
-    _dimensions = size;
+    _maxDimensions = size;
     _node->style.maxDimensions[0] = size.width;
     _node->style.maxDimensions[1] = size.height;
 }

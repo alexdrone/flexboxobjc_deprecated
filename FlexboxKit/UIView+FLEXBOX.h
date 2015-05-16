@@ -73,7 +73,7 @@
 @property (nonatomic, assign) CGFloat flex;
 
 /// The node content directon (default is inherit)
-@property (nonatomic, assign) FLEXBOXContentDirection contentDirection;
+@property (nonatomic, assign) FLEXBOXContentDirection flexContentDirection;
 
 // Methods
 

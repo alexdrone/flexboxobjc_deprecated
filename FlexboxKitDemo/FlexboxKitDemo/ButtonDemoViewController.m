@@ -67,6 +67,7 @@
             self.container.flexJustifyContent = FLEXBOXJustificationCenter;
             self.container.flexAlignItems = FLEXBOXAlignmentCenter;
             self.container.flexDirection = FLEXBOXFlexDirectionColumn;
+            
             break;
         }
             
@@ -143,6 +144,19 @@
             
             break;
         }
+            
+        // min size
+        case 8: {
+            self.container.flexJustifyContent = FLEXBOXJustificationCenter;
+            self.container.flexAlignItems = FLEXBOXAlignmentCenter;
+            self.container.flexDirection = FLEXBOXFlexDirectionColumn;
+            
+            for (UIView *v in self.views) {
+                v.flexMinimumSize = (CGSize){100, FLT_MIN};
+            }
+            
+            break;
+        }
 
         default:
             break;
@@ -163,7 +177,7 @@
 
 - (NSArray*)labels
 {
-    return @[@"colum", @"row", @"wrap", @"flex-start", @"flex-end", @"stretch", @"stretch (constrained)", @"fixed"];
+    return @[@"colum", @"row", @"wrap", @"flex-start", @"flex-end", @"stretch", @"stretch (constrained)", @"fixed", @"min size"];
 }
 
 // creates some test views
