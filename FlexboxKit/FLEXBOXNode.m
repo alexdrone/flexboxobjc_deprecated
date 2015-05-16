@@ -122,15 +122,15 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 - (void)setMinDimensions:(CGSize)size
 {
     _minDimensions = size;
-    _node->style.minDimensions[0] = size.width;
-    _node->style.minDimensions[1] = size.height;
+//    _node->style.minDimensions[0] = size.width;
+//    _node->style.minDimensions[1] = size.height;
 }
 
 - (void)setMaxDimensions:(CGSize)size
 {
     _maxDimensions = size;
-    _node->style.maxDimensions[0] = size.width;
-    _node->style.maxDimensions[1] = size.height;
+//    _node->style.maxDimensions[0] = size.width;
+//    _node->style.maxDimensions[1] = size.height;
 }
 
 - (void)setFlexDirection:(FLEXBOXFlexDirection)flexDirection

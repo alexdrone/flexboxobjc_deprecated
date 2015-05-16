@@ -125,12 +125,13 @@
             
         // stretch (with max width)
         case 6: {
-            self.container.flexAlignItems = FLEXBOXAlignmentStretch;
             self.container.flexJustifyContent = FLEXBOXJustificationCenter;
+            self.container.flexAlignItems = FLEXBOXAlignmentCenter;
             
             for (UIView *v in self.views) {
-                v.flex = 1;
-                v.flexMaximumSize = (CGSize){320, 32};
+                
+                v.flexMinimumSize = (CGSize){100, 32};
+                v.flexMaximumSize = (CGSize){150, 32};
             }
             break;
         }
@@ -140,19 +141,6 @@
             
             for (UIView *v in self.views) {
                 v.flexFixedSize = CGSizeMake(64, 32);
-            }
-            
-            break;
-        }
-            
-        // min size
-        case 8: {
-            self.container.flexJustifyContent = FLEXBOXJustificationCenter;
-            self.container.flexAlignItems = FLEXBOXAlignmentCenter;
-            self.container.flexDirection = FLEXBOXFlexDirectionColumn;
-            
-            for (UIView *v in self.views) {
-                v.flexMinimumSize = (CGSize){100, FLT_MIN};
             }
             
             break;
@@ -177,7 +165,7 @@
 
 - (NSArray*)labels
 {
-    return @[@"colum", @"row", @"wrap", @"flex-start", @"flex-end", @"stretch", @"stretch (constrained)", @"fixed", @"min size"];
+    return @[@"colum", @"row", @"wrap", @"flex-start", @"flex-end", @"stretch", @"maximum/minimum dimensions", @"fixed"];
 }
 
 // creates some test views
