@@ -84,7 +84,7 @@ e.g.
 
 - (void)flexLayoutSubviewsInBackground
 {
-    __weak __typeof(self) weakSelf;
+    __weak __typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
         __strong __typeof(self) strongSelf = weakSelf;
