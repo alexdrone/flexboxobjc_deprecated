@@ -1,7 +1,7 @@
 # FlexboxKit
-A simple UIKit extension to wrap the flexbox properties in regular UIView. This project is based on the robust Facebook's C implementation of Flexbox.
+A simple UIKit extension to wrap the flexbox properties in regular *UIView*. This project is based on the robust Facebook's C implementation of Flexbox.
 
-The goal is to have a small standalone UIKit library to layout elements. It doesn't rely on the DOM model at all.
+The goal is to have a small standalone **UIKit** library to layout elements. It doesn't rely on the DOM model at all.
 
 
 <p align="center">
@@ -11,7 +11,7 @@ The goal is to have a small standalone UIKit library to layout elements. It does
 
 #Usage
 
-The easiest way to use the flexbox layout facilities is to instantiate a `FLEXBOXContainerView`, set its flexbox properties (as exposed in the UIView category `UIVIew+FLEXBOX`), add all the 
+The easiest way to use the flexbox layout facilities is to instantiate a `FLEXBOXContainerView`, set its flexbox properties (as exposed in the *UIView* category `UIVIew+FLEXBOX`), add all the 
 subviews you want to it and additionaly set their flex properties.
 
 You can have nested `FLEXBOXContainerView`s in the view hierarchy to accomplish more complex layouts.
@@ -60,7 +60,7 @@ Results in:
 
 ##Advanced usage
 
-You can use **FlexboxKit** without using `FLEXBOXContainerView` by simply having a `-[UIView layoutSubviews]` that calls the `-[UIView flexLayoutSubviews]` method defined in the UIView category `UIVIew+FLEXBOX`.
+You can use **FlexboxKit** without using `FLEXBOXContainerView` by simply having a `-[UIView layoutSubviews]` implementation that calls the `-[UIView flexLayoutSubviews]` method defined in the *UIView* category `UIVIew+FLEXBOX`.
 
 e.g.
 
@@ -74,7 +74,44 @@ e.g.
 
 
 ``` 
-By some minor changes in `-[UIView flexLayoutSubviews]` you can simply run the layout code in a background thread if you wish (by simply executing `[node layoutConstrainedToMaximumWidth:self.bounds.size.width]` in a background thread)
+
+If you wish to run the layout engine on a **background thread** you can do so by calling 
+`[node layoutConstrainedToMaximumWidth:self.bounds.size.width]` in a background thread and then set the computed frames in the main thread.
+
+e.g.
+
+```Objective-C
+
+- (void)flexLayoutSubviewsInBackground
+{
+    __weak __typeof(self) weakSelf;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        __strong __typeof(self) strongSelf = weakSelf;
+
+        //run the flexbox engine on a backgroun thread...
+        strongSelf.flexNode.dimensions = strongSelf.bounds.size;
+        [strongSelf.flexNode layoutConstrainedToMaximumWidth:strongSelf.bounds.size.width];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            //assign the computed frames on the main thread...
+            for (NSUInteger i = 0; i < strongSelf.flexNode.childrenCountBlock(); i++) {
+                
+                UIView *subview = self.subviews[i];
+                FLEXBOXNode *subnode = strongSelf.flexNode.childrenAtIndexBlock(i);
+                subview.frame = CGRectIntegral(subnode.frame);
+            }
+            
+            strongSelf.frame = (CGRect){strongSelf.flexNode.frame.origin, strongSelf.flexNode.frame.size};
+        });
+        
+    });
+
+}
+
+``` 
+
 
 # Attribuitions 
 It uses Facebook's [flexbox implementation][css-layout] and was inspired by Josh Abernathy's

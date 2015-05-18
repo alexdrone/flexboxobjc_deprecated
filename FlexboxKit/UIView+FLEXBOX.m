@@ -104,19 +104,30 @@ const void *FLEXBOXSizeThatFitsBlock;
 
 - (void)flexLayoutSubviews
 {
-    FLEXBOXNode *node = self.flexNode;
-    node.dimensions = self.bounds.size;
-    
-    [node layoutConstrainedToMaximumWidth:self.bounds.size.width];
-    
-    for (NSUInteger i = 0; i < node.childrenCountBlock(); i++) {
+    __weak __typeof(self) weakSelf;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
-        UIView *subview = self.subviews[i];
-        FLEXBOXNode *subnode = node.childrenAtIndexBlock(i);
-        subview.frame = CGRectIntegral(subnode.frame);
-    }
+        __strong __typeof(self) strongSelf = weakSelf;
 
-    self.frame = (CGRect){self.frame.origin, node.frame.size};
+        //run the flexbox engine on a backgroun thread...
+        strongSelf.flexNode.dimensions = strongSelf.bounds.size;
+        [strongSelf.flexNode layoutConstrainedToMaximumWidth:strongSelf.bounds.size.width];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            //assign the computed frames on the main thread...
+            for (NSUInteger i = 0; i < strongSelf.flexNode.childrenCountBlock(); i++) {
+                
+                UIView *subview = self.subviews[i];
+                FLEXBOXNode *subnode = strongSelf.flexNode.childrenAtIndexBlock(i);
+                subview.frame = CGRectIntegral(subnode.frame);
+            }
+            
+            strongSelf.frame = (CGRect){strongSelf.flexNode.frame.origin, strongSelf.flexNode.frame.size};
+        });
+        
+    });
+
 }
 
 #pragma mark - Properties
