@@ -4,6 +4,10 @@ A simple UIKit extension to wrap the flexbox properties in regular UIView. This 
 The goal is to have a small standalone UIKit library to layout elements. It doesn't rely on the DOM model at all.
 
 
+<p align="center">
+![Gif](demo.gif)
+
+
 
 #Usage
 
