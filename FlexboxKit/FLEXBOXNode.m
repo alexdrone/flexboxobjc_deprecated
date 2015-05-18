@@ -115,22 +115,22 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 - (void)setDimensions:(CGSize)size
 {
     _dimensions = size;
-    _node->style.dimensions[0] = size.width;
-    _node->style.dimensions[1] = size.height;
+    _node->style.dimensions[CSS_WIDTH] = size.width;
+    _node->style.dimensions[CSS_HEIGHT] = size.height;
 }
 
 - (void)setMinDimensions:(CGSize)size
 {
     _minDimensions = size;
-//    _node->style.minDimensions[0] = size.width;
-//    _node->style.minDimensions[1] = size.height;
+//    _node->style.minDimensions[CSS_WIDTH] = size.width;
+//    _node->style.minDimensions[CSS_HEIGHT] = size.height;
 }
 
 - (void)setMaxDimensions:(CGSize)size
 {
     _maxDimensions = size;
-//    _node->style.maxDimensions[0] = size.width;
-//    _node->style.maxDimensions[1] = size.height;
+//    _node->style.maxDimensions[CSS_WIDTH] = size.width;
+//    _node->style.maxDimensions[CSS_HEIGHT] = size.height;
 }
 
 - (void)setFlexDirection:(FLEXBOXFlexDirection)flexDirection
@@ -142,19 +142,19 @@ static css_dim_t FLEXBOX_measureNode(void *context, float width)
 - (void)setMargin:(UIEdgeInsets)margin
 {
     _margin = margin;
-    _node->style.margin[0] = margin.left;
-    _node->style.margin[1] = margin.top;
-    _node->style.margin[2] = margin.right;
-    _node->style.margin[3] = margin.bottom;
+    _node->style.margin[CSS_LEFT] = margin.left;
+    _node->style.margin[CSS_TOP] = margin.top;
+    _node->style.margin[CSS_RIGHT] = margin.right;
+    _node->style.margin[CSS_BOTTOM] = margin.bottom;
 }
 
 - (void)setPadding:(UIEdgeInsets)padding
 {
     _padding = padding;
-    _node->style.padding[0] = padding.left;
-    _node->style.padding[1] = padding.top;
-    _node->style.padding[2] = padding.right;
-    _node->style.padding[3] = padding.bottom;
+    _node->style.padding[CSS_LEFT] = padding.left;
+    _node->style.padding[CSS_TOP] = padding.top;
+    _node->style.padding[CSS_RIGHT] = padding.right;
+    _node->style.padding[CSS_BOTTOM] = padding.bottom;
 }
 
 - (void)setFlex:(CGFloat)flex
