@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ButtonDemoViewController.h"
 #import "CellDemoTableViewController.h"
+#import "GridDemoViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,11 +23,11 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
    
-    self.window.rootViewController = [[ButtonDemoViewController alloc] init];
+    self.window.rootViewController = [[GridDemoViewController alloc] init];
 
     //Uncomment this to see the UITableViewCell demo
-    //self.window.rootViewController = [[CellDemoTableViewController alloc] init];
-    
+//    self.window.rootViewController = [[CellDemoTableViewController alloc] init];
+//    self.window.rootViewController = [[GridDemoViewController.h alloc] init];
     
     [self.window makeKeyAndVisible];
     

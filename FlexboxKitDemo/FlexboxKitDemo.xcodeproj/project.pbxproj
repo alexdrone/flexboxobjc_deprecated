@@ -16,6 +16,7 @@
 		16AD78DD1AFE9762003C2D01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16AD78DC1AFE9762003C2D01 /* Images.xcassets */; };
 		16AD78E01AFE9762003C2D01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16AD78DE1AFE9762003C2D01 /* LaunchScreen.xib */; };
 		16AD78EC1AFE9762003C2D01 /* FlexboxKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16AD78EB1AFE9762003C2D01 /* FlexboxKitDemoTests.m */; };
+		16BA5F771B0A8ACF00BBEE70 /* GridDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA5F761B0A8ACF00BBEE70 /* GridDemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		16AD78EA1AFE9762003C2D01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AD78EB1AFE9762003C2D01 /* FlexboxKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlexboxKitDemoTests.m; sourceTree = "<group>"; };
 		16AD78F51AFE9767003C2D01 /* FlexboxKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FlexboxKit.xcodeproj; path = ../FlexboxKit.xcodeproj; sourceTree = "<group>"; };
+		16BA5F751B0A8ACF00BBEE70 /* GridDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridDemoViewController.h; sourceTree = "<group>"; };
+		16BA5F761B0A8ACF00BBEE70 /* GridDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridDemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				16AD78D71AFE9762003C2D01 /* ButtonDemoViewController.m */,
 				162265811AFFB1D40039345E /* CellDemoTableViewController.h */,
 				162265821AFFB1D40039345E /* CellDemoTableViewController.m */,
+				16BA5F751B0A8ACF00BBEE70 /* GridDemoViewController.h */,
+				16BA5F761B0A8ACF00BBEE70 /* GridDemoViewController.m */,
 				16AD78DC1AFE9762003C2D01 /* Images.xcassets */,
 				16AD78DE1AFE9762003C2D01 /* LaunchScreen.xib */,
 				16AD78CF1AFE9762003C2D01 /* Supporting Files */,
@@ -298,6 +303,7 @@
 				16AD78D81AFE9762003C2D01 /* ButtonDemoViewController.m in Sources */,
 				16AD78D51AFE9762003C2D01 /* AppDelegate.m in Sources */,
 				16AD78D21AFE9762003C2D01 /* main.m in Sources */,
+				16BA5F771B0A8ACF00BBEE70 /* GridDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
