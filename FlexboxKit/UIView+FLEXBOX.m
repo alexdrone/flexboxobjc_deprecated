@@ -7,11 +7,30 @@
 //
 
 #import "UIView+FLEXBOX.h"
+#import "FLEXBOXContainerView.h"
 #import <objc/runtime.h>
 
+const void *FLEXBOXContainerKey;
 const void *FLEXBOXNodeKey;
+const void *FLEXBOXOffsetNodeKey;
+const void *FLEXBOXOffsetKey;
 const void *FLEXBOXSizeKey;
 const void *FLEXBOXSizeThatFitsBlock;
+
+@interface UIView (_FLEXBOX)
+
+/// The associated flexbox node
+@property (nonatomic, strong) FLEXBOXNode *flexNode;
+
+/// Used in flex node, to simulate a col offset
+@property (nonatomic, strong) FLEXBOXNode *flexOffsetNode;
+
+/// Weh
+@property (nonatomic, readonly, getter=isFlexOffsetNodeDefined) BOOL flexOffsetNodeDefined;
+@property (nonatomic, readonly, getter=isFlexOffsetNodeDefined) BOOL flexNodeDefined;
+
+@end
+
 
 @implementation UIView (FLEXBOX)
 
@@ -26,11 +45,40 @@ const void *FLEXBOXSizeThatFitsBlock;
         __weak __typeof(self) weakSelf = self;
         
         self.flexNode.childrenAtIndexBlock = ^FLEXBOXNode*(NSUInteger i) {
-            return [weakSelf.subviews[i] flexNode];
+
+            NSInteger count = 0;
+            for (UIView *subview in weakSelf.subviews) {
+                
+                if (subview.flexOffsetNodeDefined) {
+                    if (count == i) {
+                        
+                        //the virtual offset nodes must have all the properties of the
+                        //original node
+                        subview.flexOffsetNode.margin = subview.flexNode.margin;
+                        subview.flexOffsetNode.padding = subview.flexNode.padding;
+                        return subview.flexOffsetNode;
+                    }
+                    else count++;
+                }
+
+                if (count == i) return subview.flexNode;
+                else count++;
+            }
+
+            return nil;
         };
         
         self.flexNode.childrenCountBlock = ^NSUInteger(void) {
-            return weakSelf.subviews.count;
+            
+            NSInteger count = 0;
+            for (UIView *subview in weakSelf.subviews) {
+                
+                //takes virtual offset nodes into account
+                if (subview.flexOffsetNodeDefined) count++;
+                count++;
+            }
+            
+            return count;
         };
         
         self.flexNode.measureBlock = ^CGSize(CGFloat width) {
@@ -44,6 +92,55 @@ const void *FLEXBOXSizeThatFitsBlock;
 - (void)setFlexNode:(FLEXBOXNode*)flexNode
 {
     objc_setAssociatedObject(self, &FLEXBOXNodeKey, flexNode, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)isFlexOffsetNodeDefined
+{
+    FLEXBOXNode *node = objc_getAssociatedObject(self, &FLEXBOXOffsetNodeKey);
+    return (node && node.flex > FLT_EPSILON);
+}
+
+- (FLEXBOXNode*)flexOffsetNode
+{
+    FLEXBOXNode *node = objc_getAssociatedObject(self, &FLEXBOXOffsetNodeKey);
+    
+    if (node == nil) {
+        node = [[FLEXBOXNode alloc] init];
+        self.flexOffsetNode = node;
+        self.flexOffsetNode.flex = 0;
+        
+        self.flexOffsetNode.childrenAtIndexBlock = ^FLEXBOXNode*(NSUInteger i) {
+            //it has no children because it doesn't belong to any view
+            return nil;
+        };
+        
+        self.flexOffsetNode.childrenCountBlock = ^NSUInteger(void) {
+            //it has no children because it doesn't belong to any view
+            return 0;
+        };
+        
+        self.flexOffsetNode.measureBlock = ^CGSize(CGFloat width) {
+            //unrelevant because it uses the flex layout property
+            return CGSizeZero;
+        };
+    }
+    
+    return node;
+}
+
+- (void)setFlexOffsetNode:(FLEXBOXNode*)flexOffsetNode
+{
+    objc_setAssociatedObject(self, &FLEXBOXOffsetNodeKey, flexOffsetNode, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (BOOL)flexContainer
+{
+    return  [objc_getAssociatedObject(self, &FLEXBOXContainerKey) boolValue];
+}
+
+- (void)setFlexContainer:(BOOL)flexContainer
+{
+    objc_setAssociatedObject(self, &FLEXBOXContainerKey, @(flexContainer), OBJC_ASSOCIATION_RETAIN);
 }
 
 - (CGSize)flexFixedSize
@@ -104,21 +201,29 @@ const void *FLEXBOXSizeThatFitsBlock;
 
 - (void)flexLayoutSubviews
 {
-    FLEXBOXNode *node = self.flexNode;
-    node.dimensions = self.bounds.size;
+    self.flexNode.dimensions = self.bounds.size;
+    [self _flexLayoutSubviewsFromView:self];
+    self.frame = (CGRect){self.frame.origin, self.flexNode.frame.size};
+}
+
+- (void)_flexLayoutSubviewsFromView:(UIView*)view
+{
+    [view.flexNode layoutConstrainedToMaximumWidth:CGRectGetWidth(view.bounds)];
     
-    [node layoutConstrainedToMaximumWidth:self.bounds.size.width];
-    
-    for (NSUInteger i = 0; i < node.childrenCountBlock(); i++) {
+    for (NSUInteger i = 0; i < view.subviews.count; i++) {
         
-        UIView *subview = self.subviews[i];
-        FLEXBOXNode *subnode = node.childrenAtIndexBlock(i);
+        UIView *subview = view.subviews[i];
+        FLEXBOXNode *subnode = subview.flexNode;
         subview.frame = CGRectIntegral(subnode.frame);
     }
     
-    self.frame = (CGRect){self.frame.origin, node.frame.size};
+    for (NSUInteger i = 0; i < view.subviews.count; i++) {
+        UIView *subview = view.subviews[i];
+        
+        if (subview.flexContainer)
+            [self _flexLayoutSubviewsFromView:subview];
+    }
 }
-
 
 #pragma mark - Properties
 
@@ -200,6 +305,16 @@ const void *FLEXBOXSizeThatFitsBlock;
 - (void)setFlex:(CGFloat)flex
 {
     self.flexNode.flex = flex;
+}
+
+- (CGFloat)flexOffset
+{
+    return self.flexOffsetNodeDefined ? self.flexOffsetNode.flex : 0;
+}
+
+- (void)setFlexOffset:(CGFloat)flexOffset
+{
+    self.flexOffsetNode.flex = flexOffset;
 }
 
 - (CGSize)flexMinimumSize
