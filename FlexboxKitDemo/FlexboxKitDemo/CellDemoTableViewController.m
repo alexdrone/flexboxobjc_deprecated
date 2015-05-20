@@ -35,7 +35,7 @@ static const CGFloat CELL_HEIGHT = 62;
         left.backgroundColor = tomatoColor;
         left.layer.cornerRadius = (CELL_HEIGHT-8)/2;
         
-        FLEXBOXContainerView *right = [[FLEXBOXContainerView alloc] initWithFrame:CGRectZero];
+        UIView *right = [[FLEXBOXContainerView alloc] initWithFrame:CGRectZero];
         right.backgroundColor = steelBlueColor;
         
         UILabel *time = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -53,7 +53,7 @@ static const CGFloat CELL_HEIGHT = 62;
         UILabel *caption = [[UILabel alloc] initWithFrame:CGRectZero];
         caption.textColor = [UIColor whiteColor];
         caption.font = [UIFont systemFontOfSize:13];
-        caption.text = @"Ex persius officiis appellantur vel, est viris admodum et.";
+        caption.text = @"Ex persius officiis appellantur vel, est viris admodum et est viris admodum.";
         
         
         // View hierarchy
@@ -76,6 +76,7 @@ static const CGFloat CELL_HEIGHT = 62;
         left.flexMargin = (UIEdgeInsets){0,12,0,12};
         left.flexAlignSelf = FLEXBOXAlignmentCenter;
         
+        right.flexContainer = YES;
         right.flex = 1;
         right.flexDirection = FLEXBOXFlexDirectionColumn;
         right.flexJustifyContent = FLEXBOXJustificationCenter;

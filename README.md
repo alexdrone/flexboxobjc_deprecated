@@ -14,14 +14,14 @@ The goal is to have a small standalone **UIKit** library to layout elements. It 
 The easiest way to use the flexbox layout facilities is to instantiate a `FLEXBOXContainerView`, set its flexbox properties (as exposed in the *UIView* category `UIVIew+FLEXBOX`), add all the 
 subviews you want to it and additionaly set their flex properties.
 
-You can have nested `FLEXBOXContainerView`s in the view hierarchy to accomplish more complex layouts.
+If you have subviews which themselves will have subviews that you wish to layout using the flexbox engine, you simply have to set the *UIView* category property `flexContainer` to `YES`, and so on. You can also have nested `FLEXBOXContainerView`s.
 
 e.g. Given a view (in this case a *UITableViewCell*) with these subviews:
 
 ```Objective-C
 
-FLEXBOXContainerView *contentView, right;
-UIView *left;
+FLEXBOXContainerView *contentView;
+UIView *left, *right;
 UILabel *title, *caption;
 
 ...
@@ -45,6 +45,7 @@ left.flexFixedSize = (CGSize){A_FIXED_SIZE, A_FIXED_SIZE};
 left.flexMargin = (UIEdgeInsets){SOME_MARGIN, SOME_MARGIN, SOME_MARGIN, SOME_MARGIN};
 left.flexAlignSelf = FLEXBOXAlignmentCenter;
 
+rigth.flexContainer = YES;
 right.flex = 1;
 right.flexJustifyContent = FLEXBOXJustificationCenter;
 
