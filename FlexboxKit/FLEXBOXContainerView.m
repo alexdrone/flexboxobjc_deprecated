@@ -13,6 +13,10 @@
 
 - (void)layoutSubviews
 {
+    //default flexbox container attributes
+    self.flex = self.flex < FLT_EPSILON ? 1 : self.flex;
+    self.flexContainer = YES;
+    
     [super layoutSubviews];
     [self flexLayoutSubviews];
 }

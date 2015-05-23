@@ -74,9 +74,6 @@
 /// A value between 0 and 1 (a ratio e.g. 1/2, 2/3)
 @property (nonatomic, assign) CGFloat flex;
 
-/// Another virtual node  isused to offset the item when using the flex property
-/// A value between 0 and 1 (a ratio e.g. 1/2, 2/3)
-@property (nonatomic, assign) CGFloat flexOffset;
 
 /// The node content directon (default is inherit)
 @property (nonatomic, assign) FLEXBOXContentDirection flexContentDirection;

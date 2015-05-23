@@ -29,19 +29,16 @@
     FLEXBOXContainerView *container = [[FLEXBOXContainerView alloc] initWithFrame:self.view.bounds];
     container.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     container.backgroundColor = [UIColor darkGrayColor];
-    container.flexAlignItems = FLEXBOXAlignmentStretch;
     container.flexDirection = FLEXBOXFlexDirectionColumn;
     
-    self.firstRow = [[UIView alloc] initWithFrame:CGRectZero];
+    self.firstRow = [[UIView alloc] initWithFrame:self.view.bounds];
     self.firstRow.layer.borderColor = purpleColor.CGColor;
-    self.firstRow.layer.borderWidth = 1;
-    self.firstRow.flex = 1;
+    self.firstRow.layer.borderWidth = 4;
     self.firstRow.flexContainer = YES;
     
-    self.secondRow = [[UIView alloc] initWithFrame:CGRectZero];
+    self.secondRow = [[UIView alloc] initWithFrame:self.view.bounds];
     self.secondRow.layer.borderColor = purpleColor.CGColor;
-    self.secondRow.layer.borderWidth = 1;
-    self.secondRow.flex = 1;
+    self.secondRow.layer.borderWidth = 4;
     self.secondRow.flexContainer = YES;
 
     self.firstRowViews = [self createFirstRowViews];
@@ -72,7 +69,7 @@
     for (FLEXBOXContainerView *c in @[self.firstRow, self.secondRow]) {
         c.flexAlignItems = FLEXBOXAlignmentCenter;
         c.flexDirection = FLEXBOXFlexDirectionRow;
-        CGFloat containerGut = 32;
+        CGFloat containerGut = 20;
         c.flexMargin = (UIEdgeInsets){containerGut, containerGut, containerGut, containerGut};;
     }
     
@@ -84,18 +81,17 @@
         v.flexMargin = (UIEdgeInsets){gut, gut, gut, gut};
         v.flexPadding = (UIEdgeInsets){gut, gut, gut, gut};
     }
-    
-    //case 0
-    [self.firstRowViews[0] setFlex:1.0/2.0];
-    [self.firstRowViews[1] setFlex:1.0/6.0];
-    [self.firstRowViews[2] setFlex:1.0/6.0];
-    [self.firstRowViews[3] setFlex:1.0/6.0];
+
+    [self.secondRowViews[0] setFlex:0];
+    [self.secondRowViews[0] setFlexFixedSize:(CGSize){120,60}];
 
     switch (index) {
 
         case 0: {
-            [self.secondRowViews[0] setFlexOffset:1.0/4.0];
-            [self.secondRowViews[0] setFlex:1.0];
+            [self.firstRowViews[0] setFlex:1.0/2.0];
+            [self.firstRowViews[1] setFlex:1.0/6.0];
+            [self.firstRowViews[2] setFlex:1.0/6.0];
+            [self.firstRowViews[3] setFlex:1.0/6.0];
             break;
         }
             
@@ -123,36 +119,6 @@
             break;
         }
             
-        case 4: {
-            
-            int dice = arc4random_uniform(4);
-            switch (dice) {
-                case 0:
-                    [self.secondRowViews[0] setFlexOffset:1.0/4.0];
-                    [self.secondRowViews[0] setFlex:1.0];
-                    break;
-                    
-                case 1:
-                    [self.secondRowViews[0] setFlexOffset:1.0/3.0];
-                    [self.secondRowViews[0] setFlex:1.0];
-                    break;
-                    
-                case 2:
-                    [self.secondRowViews[0] setFlexOffset:1.0/8.0];
-                    [self.secondRowViews[0] setFlex:1.0];
-                    break;
-                    
-                case 3:
-                    [self.secondRowViews[0] setFlexOffset:1.0/2.0];
-                    [self.secondRowViews[0] setFlex:1.0];
-                    break;
-                    
-                default:
-                    break;
-            }
-
-        }
-
         default:
             break;
     }
@@ -195,7 +161,7 @@
     UIColor *tomatoColor = [UIColor colorWithRed:255.f/255.f green:99.f/255.f blue:71.f/255.f alpha:1.f];
     UIColor *steelBlueColor = [UIColor colorWithRed:0.f/255.f green:154.f/255.f blue:184.f/255.f alpha:1.f];
     
-    NSArray *labels = @[@"offset"];
+    NSArray *labels = @[@"A fixed size item"];
 
     //Dum
     NSMutableArray *buttons = @[].mutableCopy;
