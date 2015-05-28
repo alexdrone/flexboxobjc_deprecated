@@ -7,6 +7,7 @@
 //
 
 #include <stdlib.h>
+#import "UIColor+Demo.h"
 #import "GridDemoViewController.h"
 @import FlexboxKit;
 
@@ -23,21 +24,19 @@
 {
     [super viewDidLoad];
     
-    UIColor *purpleColor = [UIColor colorWithRed:0.533 green:0.247 blue:0.671 alpha:1.000];
-    
-    // the flexbox container
+    // the flexbox containers
     FLEXBOXContainerView *container = [[FLEXBOXContainerView alloc] initWithFrame:self.view.bounds];
     container.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     container.backgroundColor = [UIColor darkGrayColor];
     container.flexDirection = FLEXBOXFlexDirectionColumn;
     
     self.firstRow = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.firstRow.layer.borderColor = purpleColor.CGColor;
+    self.firstRow.layer.borderColor = UIColor.purpleColor.CGColor;
     self.firstRow.layer.borderWidth = 4;
     self.firstRow.flexContainer = YES;
     
     self.secondRow = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.secondRow.layer.borderColor = purpleColor.CGColor;
+    self.secondRow.layer.borderColor = UIColor.purpleColor.CGColor;
     self.secondRow.layer.borderWidth = 4;
     self.secondRow.flexContainer = YES;
 
@@ -130,13 +129,9 @@
 
 #pragma mark - Test view (No layout logic)
 
-
 // creates some test views
 - (NSArray*)createFirstRowViews
 {
-    UIColor *tomatoColor = [UIColor colorWithRed:255.f/255.f green:99.f/255.f blue:71.f/255.f alpha:1.f];
-    UIColor *steelBlueColor = [UIColor colorWithRed:0.f/255.f green:154.f/255.f blue:184.f/255.f alpha:1.f];
-    
     NSArray *labels = @[@"1", @"2", @"3", @"4"];
     
     //Dum
@@ -145,7 +140,7 @@
         
         UIButton *b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [b setTitle:labels[i] forState:UIControlStateNormal];
-        [b setBackgroundColor:@[tomatoColor, steelBlueColor][i%2]];
+        [b setBackgroundColor:@[UIColor.tomatoColor, UIColor.steelBlueColor][i%2]];
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [b addTarget:self action:@selector(didPressButton:) forControlEvents:UIControlEventTouchUpInside];
         b.layer.cornerRadius = 8;
@@ -158,9 +153,6 @@
 
 - (NSArray*)createSecondRowViews
 {
-    UIColor *tomatoColor = [UIColor colorWithRed:255.f/255.f green:99.f/255.f blue:71.f/255.f alpha:1.f];
-    UIColor *steelBlueColor = [UIColor colorWithRed:0.f/255.f green:154.f/255.f blue:184.f/255.f alpha:1.f];
-    
     NSArray *labels = @[@"A fixed size item"];
 
     //Dum
@@ -169,7 +161,7 @@
         
         UIButton *b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [b setTitle:labels[i] forState:UIControlStateNormal];
-        [b setBackgroundColor:@[tomatoColor, steelBlueColor][i%2]];
+        [b setBackgroundColor:@[UIColor.tomatoColor, UIColor.steelBlueColor][i%2]];
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [b addTarget:self action:@selector(didPressButton:) forControlEvents:UIControlEventTouchUpInside];
         b.layer.cornerRadius = 8;

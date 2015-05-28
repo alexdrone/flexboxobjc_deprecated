@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Alex Usbergo. All rights reserved.
 //
 
+#import "UIColor+Demo.h"
 #import "ButtonDemoViewController.h"
 @import FlexboxKit;
 
@@ -22,18 +23,17 @@
 {
     [super viewDidLoad];
     
-    // the flexbox container
-    FLEXBOXContainerView *c = [[FLEXBOXContainerView alloc] initWithFrame:self.view.bounds];
-    c.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    c.backgroundColor = [UIColor darkGrayColor];
-    [self.view addSubview:c];
-    
-    self.container = c;
+    //the flexbox container
+    self.container = [[FLEXBOXContainerView alloc] initWithFrame:self.view.bounds];
+    self.container.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    self.container.backgroundColor = UIColor.darkGrayColor;
 
     self.views = [self createDummyViews];
     
+    //view hierarchy
+    [self.view addSubview:self.container];
     for (UIView *v in self.views)
-        [c addSubview:v];
+        [self.container addSubview:v];
     
     //Flexbox
     [self layout:0];
@@ -171,17 +171,13 @@
 // creates some test views
 - (NSArray*)createDummyViews
 {
-    UIColor *tomatoColor = [UIColor colorWithRed:255.f/255.f green:99.f/255.f blue:71.f/255.f alpha:1.f];
-    UIColor *steelBlueColor = [UIColor colorWithRed:0.f/255.f green:154.f/255.f blue:184.f/255.f alpha:1.f];
-    UIColor *purpleColor = [UIColor colorWithRed:0.533 green:0.247 blue:0.671 alpha:1.000];
-    
     //Dum
     NSMutableArray *buttons = @[].mutableCopy;
     for (NSUInteger i = 0; i < self.labels.count; i++) {
         
         UIButton *b = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [b setTitle:self.labels[i] forState:UIControlStateNormal];
-        [b setBackgroundColor:@[tomatoColor, steelBlueColor, purpleColor][i%3]];
+        [b setBackgroundColor:@[UIColor.tomatoColor, UIColor.steelBlueColor, UIColor.purpleColor][i%3]];
         [b setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [b addTarget:self action:@selector(didPressButton:) forControlEvents:UIControlEventTouchUpInside];
         b.layer.cornerRadius = 8;

@@ -7,13 +7,13 @@
 //
 
 @import FlexboxKit;
+#import "UIColor+Demo.h"
 #import "CellDemoTableViewController.h"
 #import <objc/runtime.h>
 
-static const CGFloat CELL_HEIGHT = 62;
+#pragma mark - Cell
 
 @interface FlexDemoTableViewCell : UITableViewCell
-
 @end
 
 @implementation FlexDemoTableViewCell
@@ -21,28 +21,22 @@ static const CGFloat CELL_HEIGHT = 62;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
-        // Some colors
-        UIColor *tomatoColor = [UIColor colorWithRed:255.f/255.f green:99.f/255.f blue:71.f/255.f alpha:1.f];
-        UIColor *steelBlueColor = [UIColor colorWithRed:0.f/255.f green:154.f/255.f blue:184.f/255.f alpha:1.f];
-        UIColor *purpleColor = [UIColor colorWithRed:0.533 green:0.247 blue:0.671 alpha:1.000];
-        
-        self.backgroundColor = self.contentView.backgroundColor = [UIColor blackColor];
+
+        self.backgroundColor = self.contentView.backgroundColor = UIColor.blackColor;
     
         // Dummy views (No layout)
-        
         UIView *left = [[UIView alloc] initWithFrame:CGRectZero];
-        left.backgroundColor = tomatoColor;
-        left.layer.cornerRadius = (CELL_HEIGHT-8)/2;
+        left.backgroundColor = UIColor.tomatoColor;
+        left.layer.cornerRadius = (self.class.defaultHeight-8)/2;
         
         UIView *right = [[FLEXBOXContainerView alloc] initWithFrame:CGRectZero];
-        right.backgroundColor = steelBlueColor;
+        right.backgroundColor = UIColor.steelBlueColor;
         
         UILabel *time = [[UILabel alloc] initWithFrame:CGRectZero];
         time.textColor = [UIColor whiteColor];
         time.font = [UIFont boldSystemFontOfSize:11];
         time.text = @"88:88";
-        time.backgroundColor = purpleColor;
+        time.backgroundColor = UIColor.purpleColor;
         time.textAlignment = NSTextAlignmentCenter;
 
         UILabel *title = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -57,22 +51,18 @@ static const CGFloat CELL_HEIGHT = 62;
         
         
         // View hierarchy
-        
         [self.contentView addSubview:left];
         [self.contentView addSubview:right];
         [self.contentView addSubview:time];
-        
         [right addSubview:title];
         [right addSubview:caption];
         
         
-        // Flexbox
-        
-        
+        // Flexbox layout
         object_setClass(self.contentView, FLEXBOXContainerView.class);
         self.contentView.flexDirection = FLEXBOXFlexDirectionRow;
         
-        left.flexFixedSize = (CGSize){CELL_HEIGHT-8,CELL_HEIGHT-8};
+        left.flexFixedSize = (CGSize){(self.class.defaultHeight-8),(self.class.defaultHeight-8)};
         left.flexMargin = (UIEdgeInsets){0,12,0,12};
         left.flexAlignSelf = FLEXBOXAlignmentCenter;
         
@@ -92,7 +82,14 @@ static const CGFloat CELL_HEIGHT = 62;
     return self;
 }
 
++ (CGFloat)defaultHeight
+{
+    return 62;
+}
+
 @end
+
+#pragma mark - ViewController
 
 
 @interface CellDemoTableViewController ()
@@ -108,8 +105,8 @@ static const CGFloat CELL_HEIGHT = 62;
 
     [self.tableView registerClass:FlexDemoTableViewCell.class forCellReuseIdentifier:@"Cell"];
     self.tableView.delegate = self;
-    self.tableView.separatorColor = [UIColor clearColor];
-    self.tableView.backgroundColor = [UIColor blackColor];
+    self.tableView.separatorColor = UIColor.clearColor;
+    self.tableView.backgroundColor = UIColor.blackColor;
     
     // Uncomment the following line to preserve selection between presentations.
      self.clearsSelectionOnViewWillAppear = NO;
@@ -140,10 +137,10 @@ static const CGFloat CELL_HEIGHT = 62;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CELL_HEIGHT;
+    return [FlexDemoTableViewCell defaultHeight];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     return cell;

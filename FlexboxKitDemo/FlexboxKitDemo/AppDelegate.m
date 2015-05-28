@@ -23,11 +23,10 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
    
-
-    //Uncomment this to see the UITableViewCell demo
+    //Comment/uncomment these lines to try the different demos
+    self.window.rootViewController = [[GridDemoViewController alloc] init];
 //    self.window.rootViewController = [[CellDemoTableViewController alloc] init];
 //    self.window.rootViewController = [[ButtonDemoViewController alloc] init];
-    self.window.rootViewController = [[GridDemoViewController alloc] init];
 
     [self.window makeKeyAndVisible];
     
