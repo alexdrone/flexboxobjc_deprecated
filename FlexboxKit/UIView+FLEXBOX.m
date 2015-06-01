@@ -86,12 +86,12 @@ const void *FLEXBOXSizeThatFitsBlock;
     return objc_setAssociatedObject(self, &FLEXBOXSizeKey, [NSValue valueWithCGSize:flexFixedSize], OBJC_ASSOCIATION_RETAIN);
 }
 
-- (void)setSizeThatFitsBlock:(CGSize (^)(CGSize))sizeThatFitsBlock
+- (void)setFlexSizeThatFitsBlock:(CGSize (^)(CGSize))sizeThatFitsBlock
 {
     objc_setAssociatedObject(self, &FLEXBOXSizeThatFitsBlock, [sizeThatFitsBlock copy], OBJC_ASSOCIATION_COPY);
 }
 
-- (CGSize (^)(CGSize))sizeThatFitsBlock
+- (CGSize (^)(CGSize))flexSizeThatFitsBlock
 {
     return objc_getAssociatedObject(self, &FLEXBOXSizeThatFitsBlock);
 }
@@ -105,9 +105,9 @@ const void *FLEXBOXSizeThatFitsBlock;
     bounds.width = isnan(bounds.width) ? FLT_MAX : bounds.width;
     
     CGSize size = CGSizeZero;
-    
-    if (self.sizeThatFitsBlock != nil) {
-        size = self.sizeThatFitsBlock(bounds);
+
+    if (self.flexSizeThatFitsBlock != nil) {
+        size = self.flexSizeThatFitsBlock(bounds);
     } else {
          size = [self sizeThatFits:bounds];
     }

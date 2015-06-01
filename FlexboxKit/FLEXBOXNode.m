@@ -10,7 +10,7 @@
 
 const CGFloat FLEXBOXUndefinedDimension = CSS_UNDEFINED;
 
-static BOOL FLEXBOX_alwaysDirty(void *context)
+static bool FLEXBOX_alwaysDirty(void *context)
 {
     return YES;
 }
