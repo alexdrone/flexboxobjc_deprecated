@@ -68,7 +68,6 @@ const void *FLEXBOXSizeThatFitsBlock;
 - (void)setFlexContainer:(BOOL)flexContainer
 {
     objc_setAssociatedObject(self, &FLEXBOXContainerKey, @(flexContainer), OBJC_ASSOCIATION_RETAIN);
-    self.flex = flexContainer ? 1 : 0;
 }
 
 - (CGSize)flexFixedSize
