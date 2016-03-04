@@ -1,4 +1,7 @@
 # FlexboxKit
+
+** Checkout [FlexboxLayout](https://github.com/alexdrone/FlexboxLayout) if you're interested in the Swift port **
+
 A simple UIKit extension to wrap the flexbox properties in regular *UIView*. This project is based on the robust Facebook's C implementation of Flexbox.
 
 The goal is to have a small standalone **UIKit** library to layout elements. It doesn't rely on the DOM model at all.
