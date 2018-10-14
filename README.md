@@ -8,11 +8,12 @@ The goal is to have a small standalone **UIKit** library to layout elements. It 
 
 
 <p align="center">
-![Gif](demo.gif)
+    <img src="demo.gif") alt="Demo"/>
+</p>
 
 
 
-#Usage
+# Usage
 
 The easiest way to use the flexbox layout facilities is to instantiate a `FLEXBOXContainerView`, set its flexbox properties (as exposed in the *UIView* category `UIVIew+FLEXBOX`), add all the 
 subviews you want to it and additionaly set their flex properties.
@@ -60,9 +61,10 @@ time.flexAlignSelf = FLEXBOXAlignmentCenter;
 Results in:
 
 <p align="center">
-![Gif](cell-example.png)
+    <img src="cell-example.png") alt="Cell example"/>
+</p>
 
-##Advanced usage
+## Advanced usage
 
 You can use **FlexboxKit** without using `FLEXBOXContainerView` by simply having a `-[UIView layoutSubviews]` implementation that calls the `-[UIView flexLayoutSubviews]` method defined in the *UIView* category `UIVIew+FLEXBOX`.
 
