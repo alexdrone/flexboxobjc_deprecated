@@ -8,7 +8,7 @@ The goal is to have a small standalone **UIKit** library to layout elements. It 
 
 
 <p align="center">
-![Gif](demo.gif)
+    <img src="demo.gif") alt="Demo"/>
 </p>
 
 
@@ -61,7 +61,7 @@ time.flexAlignSelf = FLEXBOXAlignmentCenter;
 Results in:
 
 <p align="center">
-![Gif](cell-example.png)
+    <img src="cell-example.png") alt="Cell example"/>
 </p>
 
 ## Advanced usage
